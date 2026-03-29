@@ -7486,11 +7486,20 @@ GlobalChat:OnMessageSendPressed(function()
 end)
 
 for Index = 1, 2 do 
-    local Section = CarPage:Section({Name = "Automobiles "..Index, Description = "Exploits for automobiles", Icon = "123944728972740", Side = Index})
+    local Section = CarPage:Section({Name = "ESP"..Index, Description = "Visualsy", Icon = "123944728972740", Side = Index})
 
     local Toggle = Section:Toggle({
-        Name = "Speed",
-        Flag = "Speed",
+        Name = "Nametags",
+        Flag = "Nametags",
+        Default = false,
+        Callback = function(Value)
+            print(Value)
+        end
+    })
+
+	local Toggle = Section:Toggle({
+        Name = "2D BOX",
+        Flag = "2D BOX",
         Default = false,
         Callback = function(Value)
             print(Value)
