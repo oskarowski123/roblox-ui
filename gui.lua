@@ -7486,20 +7486,11 @@ GlobalChat:OnMessageSendPressed(function()
 end)
 
 for Index = 1, 2 do 
-    local Section = CarPage:Section({Name = "ESP"..Index, Description = "Visualsy", Icon = "123944728972740", Side = Index})
+    local Section = CarPage:Section({Name = "Automobiles "..Index, Description = "Exploits for automobiles", Icon = "123944728972740", Side = Index})
 
     local Toggle = Section:Toggle({
-        Name = "Nametags",
-        Flag = "Nametags",
-        Default = false,
-        Callback = function(Value)
-            print(Value)
-        end
-    })
-
-	local Toggle = Section:Toggle({
-        Name = "2D BOX",
-        Flag = "2D BOX",
+        Name = "Speed",
+        Flag = "Speed",
         Default = false,
         Callback = function(Value)
             print(Value)
@@ -7508,7 +7499,94 @@ for Index = 1, 2 do
 
     local ToggleSettings = Toggle:Settings(300) -- size
 
-    
+    for i = 1, 15 do 
+        ToggleSettings:Slider({
+            Name = "Speed",
+            Flag = "Speed"..i,
+            Min = 1,
+            Suffix = "km/h",
+            Max = 100,
+            Default = 0,
+            Decimals = 1,
+            Callback = function(Value)
+                print(Value)
+            end
+        })
+
+        ToggleSettings:Label("i cant feel my face"):Colorpicker({
+            Name = "Color",
+            Flag = "Color",
+            Default = Color3.fromRGB(255, 255, 255),
+            Callback = function(Value)
+                print(Value)
+            end
+        })
+    end
+
+    Section:Slider({
+        Name = "Speed",
+        Flag = "Speed",
+        Min = 1,
+        Suffix = "km/h",
+        Max = 100,
+        Default = 0,
+        Decimals = 1,
+        Callback = function(Value)
+            print(Value)
+        end
+    })
+
+    Section:Dropdown({
+        Name = "Dropdown",
+        Flag = "Dropdown",
+        Default = {"First"},
+        Items = {"First", "Second", "Third", "Fourth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth"},
+        Multi = true,
+        Callback = function(Value)
+            print(Value)
+        end
+    })
+
+    Section:Label("this a label boi")
+    Section:Label("i cant feel my face"):Colorpicker({
+        Name = "Color",
+        Flag = "Color",
+        Default = Color3.fromRGB(255, 255, 255),
+        Callback = function(Value)
+            print(Value)
+        end
+    })
+
+    Section:Keybind({
+        Name = "triple t",
+        Flag = "Keybind",
+        Default = Enum.KeyCode.X,
+        Callback = function(Value)
+            print(Value)
+        end
+    })
+
+    Section:Textbox({
+        Flag = "Text",
+        Default = "Text",
+        Numeric = false,
+        Placeholder = "...",
+        Finished = true,
+        Callback = function(Value)
+            print(Value)
+        end
+    })
+
+    local b = Section:Listbox({
+        Flag = "Listbox",
+        Default = "First",
+        Size = 275,
+        Items = {"First", "Second", "Third", "Fourth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth"},
+        Multi = false,
+        Callback = function(Value)
+            print(Value)
+        end
+    })
 
     for i = 1, 50 do 
         b:Add(i)
